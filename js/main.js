@@ -41,13 +41,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const reviewsCertificateSwiper = new Swiper(".reviews__certificate-swiper", {
     slidesPerView: 2,
     spaceBetween: 20,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
+
     navigation: {
       nextEl: ".reviews__certificate-swiper-next",
       prevEl: ".reviews__certificate-swiper-prev",
+    },
+    breakpoints: {
+      700: {
+        slidesPerView: 2,
+      },
+      0: {
+        slidesPerView: 1,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      },
     },
   });
 
@@ -62,6 +71,16 @@ document.addEventListener("DOMContentLoaded", () => {
     navigation: {
       nextEl: ".system-approach__swiper-next",
       prevEl: ".system-approach__swiper-prev",
+    },
+  });
+
+  // reviews-swiper
+  const reviewsSwiper = new Swiper(".reviews-swiper", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
     },
   });
 
@@ -140,5 +159,18 @@ document.addEventListener("DOMContentLoaded", () => {
   button.addEventListener("click", () => {
     isExpanded = !isExpanded;
     updateVisibleItems();
+  });
+
+  // accordion
+  const tariffLists = document.querySelectorAll(".tariff-lists");
+
+  tariffLists.forEach((item) => {
+    const heads = item.querySelectorAll(".tariff-list");
+
+    heads.forEach((head) => {
+      head.addEventListener("click", () => {
+        head.classList.toggle("active");
+      });
+    });
   });
 });
