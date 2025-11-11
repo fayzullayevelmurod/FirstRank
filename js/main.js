@@ -3,14 +3,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const teamSwiper = new Swiper(".our-team-swiper", {
     slidesPerView: 4,
     spaceBetween: 20,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
     breakpoints: {
       320: {
-        slidesPerView: 1.2,
-        spaceBetween: 10,
+        slidesPerView: 1,
+        spaceBetween: 12,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
       },
       640: {
         slidesPerView: 2,
@@ -71,6 +71,17 @@ document.addEventListener("DOMContentLoaded", () => {
     navigation: {
       nextEl: ".system-approach__swiper-next",
       prevEl: ".system-approach__swiper-prev",
+    },
+    breakpoints: {
+      1100: {
+        slidesPerView: 2.8,
+      },
+      800: {
+        slidesPerView: 2,
+      },
+      0: {
+        slidesPerView: 1,
+      },
     },
   });
 
@@ -173,4 +184,52 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
+
+  // footer acordion
+  const footerTopBox = document.querySelectorAll(".footer__top-box");
+  footerTopBox.forEach((item) => {
+    const head = item.querySelector(".head");
+    head.addEventListener("click", () => {
+      item.classList.toggle("active");
+    });
+  });
+  // menu
+  const openMenuBtn = document.querySelector(".menu-btn");
+  const menuIcon = document.querySelector(".menu-btn img");
+  const menu = document.querySelector(".header__bottom");
+  openMenuBtn.addEventListener("click", () => {
+    menu.classList.toggle("show");
+    document.body.classList.toggle("no-scroll");
+    if (menu.classList.contains("show")) {
+      menuIcon.src = "images/icons/close.svg";
+    } else {
+      menuIcon.src = "images/icons/burger.svg";
+    }
+  });
+  const dropdown = document.querySelector(".header .dropdown");
+  const options = dropdown.querySelector(".dropdown__options");
+  const head = dropdown.querySelector(".dropdown__head");
+  head.addEventListener("click", () => {
+    options.classList.toggle("show");
+    head.classList.toggle("active");
+  });
+
+  const header = document.querySelector(".header");
+
+  function handleHeaderFixed() {
+    const scrollTop = window.scrollY || window.pageYOffset;
+    const windowWidth = window.innerWidth;
+
+    if (windowWidth < 700 && scrollTop > 50) {
+      header.classList.add("fixed");
+    } else {
+      header.classList.remove("fixed");
+    }
+    console.log("scroll:", window.scrollY, "width:", window.innerWidth);
+
+  }
+
+  window.addEventListener("scroll", handleHeaderFixed);
+
+  window.addEventListener("resize", handleHeaderFixed);
 });
