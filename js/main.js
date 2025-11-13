@@ -226,10 +226,22 @@ document.addEventListener("DOMContentLoaded", () => {
       header.classList.remove("fixed");
     }
     console.log("scroll:", window.scrollY, "width:", window.innerWidth);
-
   }
 
   window.addEventListener("scroll", handleHeaderFixed);
 
   window.addEventListener("resize", handleHeaderFixed);
+
+  const showMoreInfoBtn = document.querySelector("#show-more-info");
+  const hideInfos = document.querySelectorAll(".hide-info");
+
+  showMoreInfoBtn.addEventListener("click", () => {
+    hideInfos.forEach((el) => el.classList.toggle("show"));
+
+    if (showMoreInfoBtn.textContent === "Читать подробнее") {
+      showMoreInfoBtn.textContent = "Свернуть";
+    } else {
+      showMoreInfoBtn.textContent = "Читать подробнее";
+    }
+  });
 });
