@@ -717,7 +717,7 @@ section {
   margin-top: 40px;
 }
 .hero__content .enter__phone input {
-  flex: 1;
+  width: 100%;
   height: 100%;
   padding-left: 20px;
 }
@@ -1748,6 +1748,9 @@ section {
   border-radius: 40px;
   padding: 80px 0;
 }
+.our-team .swiper-pagination {
+  display: none;
+}
 .our-team-swiper .swiper-slide {
   position: relative;
   height: 520px;
@@ -2294,6 +2297,12 @@ section {
     margin: 0 0 40px 0;
     padding: 10px 0;
   }
+  .our-team .swiper {
+    padding-bottom: 50px;
+  }
+  .our-team .swiper-pagination {
+    display: block;
+  }
 }
 @media (max-width: 768px) {
   .trust-us__boxes {
@@ -2381,9 +2390,7 @@ section {
     padding: 80px 0;
     margin: 0;
     border-radius: 40px;
-  }
-  .our-team .swiper {
-    padding-bottom: 50px;
+    background: #f2f7fd;
   }
   .cta.cta-two {
     background: url(../images/media-bg-3.png) no-repeat !important;

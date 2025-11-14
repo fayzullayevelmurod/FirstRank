@@ -3,14 +3,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const teamSwiper = new Swiper(".our-team-swiper", {
     slidesPerView: 4,
     spaceBetween: 20,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
     breakpoints: {
       320: {
         slidesPerView: 1,
         spaceBetween: 12,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
       },
       640: {
         slidesPerView: 2,
